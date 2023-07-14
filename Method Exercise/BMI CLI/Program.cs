@@ -12,7 +12,7 @@ namespace Exercise_2
 
         static void Validate(string[] args)
         {
-            if (args.Length == 0 || args[0] != "bmi"|| args.Length == 1)
+            if (args.Length == 0 || args[0] != "bmi" || args.Length == 1)
             {
                 ErrorCommand();
                 Environment.Exit(0);
@@ -26,6 +26,11 @@ namespace Exercise_2
             else if (args[1] == "--version")
             {
                 versionCommand();
+                Environment.Exit(0);
+            }
+            else if (args[1] != "--height" && args[1] != "--weight")
+            {
+                ErrorCommand();
                 Environment.Exit(0);
             }
 
@@ -79,9 +84,9 @@ namespace Exercise_2
                     weight = Convert.ToDouble(firstArg);
                     BmiCal(height, weight);
                     break;
-                default:
-                    ErrorCommand();
-                    break;
+                // default:
+                //     ErrorCommand();
+                //     break;
 
 
             }
