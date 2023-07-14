@@ -6,164 +6,127 @@ namespace Exercise_2
     {
         static void Main(string[] args)
         {
-            validate(args);
+            Validate(args);
+            Excution(args);
         }
 
-        static void validate(string[] args)
+        static void Validate(string[] args)
         {
-            if (args.Length == 0 || args.Length == 1)
+            if (args.Length == 0 || args[0] != "bmi"|| args.Length == 1)
             {
-                Console.WriteLine("\nInvalid Command !!!");
-                Console.WriteLine("use --helps switch to show help\n");
+                ErrorCommand();
+                Environment.Exit(0);
             }
-            else if (args[0] != "bmi")
+
+            else if (args[1] == "--helps")
             {
-                Console.WriteLine("\nInvalid Command !!!");
-                Console.WriteLine("use --helps switch to show help\n");
+                helpCommand();
+                Environment.Exit(0);
             }
-              switch (args[1])
+            else if (args[1] == "--version")
             {
-                case "--helps":
-                    helpCommand(args[0], args[1]);
-                    break;
-                case "--version":
-                    versionCommand(args[0], args[1]);
-                    break;
+                versionCommand();
+                Environment.Exit(0);
+            }
+
+        }
+
+        static void helpCommand()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nList Of Switches For Running Program :\n");
+            Console.WriteLine("--helps\tshow command list");
+            Console.WriteLine("--version\tshow current version");
+            Console.WriteLine("--height\tYour height (centimeter)");
+            Console.WriteLine("--weight\tYour weight (kilogram)");
+            Console.ResetColor();
+            Console.WriteLine("\n\n");
+        }
+        static void versionCommand()
+        {
+            Console.WriteLine("\n Current version is -> 1.0\n");
+        }
+
+        static void Excution(string[] args)
+        {
+
+            var firstSwitch = args[1];
+            var firstArg = args[2];
+            var secondSwitch = args[3];
+            var secondArg = args[4];
+
+            double height, weight;
+
+            switch (firstSwitch)
+            {
                 case "--height":
-                if (args.Length == 5)
-                {
-                    bmiCal(args[0], args[1], args[2], args[3], args[4]);
-                }
-                else
-                {
-                    Console.WriteLine("\nInvalid Command !!!");
-                    Console.WriteLine("use --helps switch to show help\n");
-                }
+                    if (secondSwitch != "--weight")
+                    {
+                        ErrorCommand();
+                        break;
+                    }
+                    height = Convert.ToDouble(firstArg);
+                    weight = Convert.ToDouble(secondArg);
+                    BmiCal(height, weight);
                     break;
                 case "--weight":
-                  if (args.Length == 5)
-                {
-                    bmiCal(args[0], args[1], args[2], args[3], args[4]);
-                }
-                else
-                {
-                    Console.WriteLine("\nInvalid Command !!!");
-                    Console.WriteLine("use --helps switch to show help\n");
-                }
+                    if (secondSwitch != "--height")
+                    {
+                        ErrorCommand();
+                        break;
+                    }
+                    height = Convert.ToDouble(secondArg);
+                    weight = Convert.ToDouble(firstArg);
+                    BmiCal(height, weight);
                     break;
                 default:
-                    Console.WriteLine("\nInvalid Command !!!");
-                    Console.WriteLine("use --helps switch to show help\n");
+                    ErrorCommand();
                     break;
+
+
             }
 
         }
 
-        static void helpCommand(string bmi, string help)
+        static void BmiCal(double height, double weight)
         {
-           
-
-            if (bmi == "bmi" && help == "--helps")
+            height /= 100;
+            var bmi = Math.Round(weight / (height * height));
+            BmiShow(bmi);
+        }
+        static void BmiShow(double bmi)
+        {
+            if (bmi <= 18.4)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("\nList Of Switches For Running Program :\n");
-                Console.WriteLine("--helps                     show command list");
-                Console.WriteLine("--version                   show current version");
-                Console.WriteLine("--height                    Your height (centimeter)");
-                Console.WriteLine("--weight                    Your weight (kilogram)");
-                Console.ResetColor();
-                Console.WriteLine("\n\n");
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid Command !!!");
-                Console.WriteLine("use --helps switch to show help\n");
-
-            }
-
-        }
-        static void versionCommand(string bmi, string version)
-        {
-
-            if (bmi == "bmi" && version == "--version")
-            {
-                Console.WriteLine("\n Current version is -> 1.0\n");
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid Command !!!");
-                Console.WriteLine("use --helps switch to show help\n");
-            }
-        }
-
-        static void bmiCal(string bmi, string model_1, string num1, string model_2, string num2)
-        {
-
-            double num_1 = Convert.ToDouble(num1);
-            double num_2 = Convert.ToDouble(num2);
-            if (num_1 == 0 || num_2 == 0)
-            {
-                Console.WriteLine("\nI can not calculate when you entered zero value ...");
-                Console.WriteLine("use --helps switch to show help\n");
-            }
-            switch (model_1)
-            {
-                case "--height":
-                    if (bmi == "bmi" && model_1 == "--height" && model_2 == "--weight")
-                    {
-                        num_1 /= 100;
-                        var num = num_2 / (num_1 * num_1);
-                        bmiShow(num);
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nInvalid Command !!!");
-                        Console.WriteLine("use --helps switch to show help\n");
-                    }
-                    break;
-                case "--weight":
-                    if (bmi == "bmi" && model_1 == "--weight" && num1 != null && model_2 == "--height" && num2 != null)
-                    {
-                        num_2 /= 100;
-                        var num = num_1 / (num_2 * num_2);
-                        bmiShow(num);
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nInvalid Command !!!");
-                        Console.WriteLine("use --helps switch to show help\n");
-                    }
-                    break;
-            }
-
-        }
-        static void bmiShow(double num)
-        {
-            if (num <= 18.4)
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"\n[{num}] => Your Status is : Underweight\n");
+                Console.WriteLine($"\n[{bmi}] => Your Status is : Underweight\n");
                 Console.ResetColor();
             }
-            else if (num >= 18.5 && num <= 24.9)
+            else if (bmi >= 18.5 && bmi <= 24.9)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\n[{num}] => Your Status is : Normal\n");
+                Console.WriteLine($"\n[{bmi}] => Your Status is : Normal\n");
                 Console.ResetColor();
             }
-            else if (num >= 25 && num <= 39.9)
+            else if (bmi >= 25 && bmi <= 39.9)
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"\n[{num}] => Your Status is : Overweight\n");
+                Console.WriteLine($"\n[{bmi}] => Your Status is : Overweight\n");
                 Console.ResetColor();
             }
-            else if (num >= 40)
+            else if (bmi >= 40)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\n[{num}] => Your Status is : Obese \n");
+                Console.WriteLine($"\n[{bmi}] => Your Status is : Obese \n");
                 Console.ResetColor();
             }
         }
+        static void ErrorCommand()
+        {
+            Console.WriteLine("\nInvalid Command !!!");
+            Console.WriteLine("use --helps switch to show help\n");
+        }
+
     }
 }
 
