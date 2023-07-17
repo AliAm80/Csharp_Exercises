@@ -6,8 +6,9 @@ namespace Exercise_6
     {
         static void Main(string[] args)
         {
-            var playAgain = false;
-            do
+            Random rand = new Random();
+            var playAgain = true;
+            while (playAgain)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -16,34 +17,15 @@ namespace Exercise_6
 
                 var player = Player();
                 Validation(player);
-                var computer = Computer();
-    
+                var computer = Computer(rand);
+
                 Console.WriteLine($"\nPlayer : [{player}]");
                 Console.WriteLine($"Computer : [{computer}]");
                 Console.Write($"Result -> ");
                 Game(player, computer);
-
                 Console.WriteLine("\n");
-                Console.WriteLine("Would you like to play again ? (yes/no)");
-                var answer = Console.ReadLine();
-                if (answer == "yes")
-                {
-                    playAgain = true;
-                }
-                else if (answer == "no")
-                {
-                    Console.WriteLine("\nThanks For Playing This Game :)\n");
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\t\t\t\tE R R O R : Try Again !!!\n\n");
-                    Console.ResetColor();
-                    Environment.Exit(0);
-                }
-
-            } while (playAgain);
+                playAgain = PlayAgain();
+            }
 
         }
 
@@ -54,10 +36,10 @@ namespace Exercise_6
             var player = Console.ReadLine();
             return player.ToLower();
         }
-        static string Computer()
+        static string Computer(Random rand)
         {
             string[] game = { "paper", "scissors", "rock" };
-            Random rand = new Random();
+            rand = new Random();
             var num = rand.Next(0, 3);
             var computer = game[num];
             return computer;
@@ -119,6 +101,32 @@ namespace Exercise_6
                 Console.ResetColor();
                 Environment.Exit(0);
             }
+        }
+
+        static bool PlayAgain()
+        {
+            
+            Console.WriteLine("Would you like to play again ? (yes/no)");
+            var answer = Console.ReadLine();
+            if (answer == "yes")
+            {
+                return true;
+            }
+            else if (answer == "no")
+            {
+                Console.WriteLine("\nThanks For Playing This Game :)\n");
+                
+            }
+            else
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\t\t\t\tE R R O R : Try Again !!!\n\n");
+                Console.ResetColor();
+                Environment.Exit(0);
+            }
+            return false;
+            
         }
     }
 }
