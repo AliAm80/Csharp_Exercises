@@ -37,11 +37,11 @@ namespace Exercise_3
                                 break;
                             case "2":
                                 var value = rectangle.GetValue();
-                                Console.WriteLine($"The Area of Rectangle is -> [{rectangle.Area(value.Item1, value.Item2)}]");
+                                Console.WriteLine($"The Area of Rectangle is -> [{rectangle.CalArea(value.Item1, value.Item2)}]");
                                 break;
                             case "3":
                                 value = rectangle.GetValue();
-                                Console.WriteLine($"The Perimeter of Rectangle is -> [{rectangle.Perimeter(value.Item1, value.Item2)}]");
+                                Console.WriteLine($"The Perimeter of Rectangle is -> [{rectangle.CalPerimeter(value.Item1, value.Item2)}]");
                                 break;
                         }
                         break;
@@ -56,11 +56,11 @@ namespace Exercise_3
                                 break;
                             case "2":
                                 var value2 = circle.GetValue();
-                                Console.WriteLine($"The Area of Circle is -> [{circle.Area(value2)}]");
+                                Console.WriteLine($"The Area of Circle is -> [{circle.CalArea(value2)}]");
                                 break;
                             case "3":
                                 value2 = circle.GetValue();
-                                Console.WriteLine($"The Perimeter of Circle is -> [{circle.Perimeter(value2)}]");
+                                Console.WriteLine($"The Perimeter of Circle is -> [{circle.CalPerimeter(value2)}]");
                                 break;
                         }
                         break;
@@ -75,11 +75,11 @@ namespace Exercise_3
                                 break;
                             case "2":
                                 var value3 = square.GetValue();
-                                Console.WriteLine($"The Area of Square is -> [{square.Area(value3)}]");
+                                Console.WriteLine($"The Area of Square is -> [{square.CalArea(value3)}]");
                                 break;
                             case "3":
                                 value3 = square.GetValue();
-                                Console.WriteLine($"The Perimeter of Square is -> [{square.Perimeter(value3)}]");
+                                Console.WriteLine($"The Perimeter of Square is -> [{square.CalPerimeter(value3)}]");
                                 break;
                         }
                         break;
@@ -94,11 +94,11 @@ namespace Exercise_3
                                 break;
                             case "2":
                                 var value4 = triangle.GetValue();
-                                Console.WriteLine($"The Area of Triangle is -> [{triangle.Area(value4.Item1, value4.Item2)}]");
+                                Console.WriteLine($"The Area of Triangle is -> [{triangle.CalArea(value4.Item1, value4.Item2)}]");
                                 break;
                             case "3":
                                 var value5 = triangle.GetValue2();
-                                Console.WriteLine($"The Perimeter of Triangle is -> [{triangle.Perimeter(value5.Item1, value5.Item2, value5.Item3)}]");
+                                Console.WriteLine($"The Perimeter of Triangle is -> [{triangle.CalPerimeter(value5.Item1, value5.Item2, value5.Item3)}]");
                                 break;
                         }
                         break;

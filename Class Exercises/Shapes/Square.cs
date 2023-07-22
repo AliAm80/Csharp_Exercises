@@ -9,10 +9,10 @@ namespace Exercise_3
     {
         public Square()
         {
-            name = "Square";
-            sides = 4;
-            area = "Side * Side";
-            perimeter = "Side * 4";
+            Name = "Square";
+            Sides = 4;
+            Area = "Side * Side";
+            Perimeter = "Side * 4";
         }
 
         public int GetValue()
@@ -22,11 +22,11 @@ namespace Exercise_3
             return side;
         }
 
-        public double Area(int side)
+        public double CalArea(int side)
         {
             return side * side;
         }
-        public double Perimeter(int side)
+        public double CalPerimeter(int side)
         { 
             return side * 4;
         }

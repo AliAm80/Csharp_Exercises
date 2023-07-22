@@ -7,25 +7,25 @@ namespace Exercise_3
 {
     public class Shapes
     {
-        public string name;
-        public int sides;
-        public string area;
-        public string perimeter;
+        public string Name { get; set; }
+        public int Sides { get; set; }
+        public string Area { get; set; }
+        public string Perimeter { get; set; }
 
         public Shapes()
         {
-            name = "";
-            area = "";
-            perimeter = "";
+            Name = "";
+            Area = "";
+            Perimeter = "";
         }
 
         public void ShowInfo()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"\nThe shape name is {name}");
-            Console.WriteLine($"This has {sides} sides");
-            Console.WriteLine($"The Area of {name} is -> [{area}]");
-            Console.WriteLine($"The Perimeter of {name} is -> [{perimeter}]\n");
+            Console.WriteLine($"\nThe shape name is {Name}");
+            Console.WriteLine($"This has {Sides} sides");
+            Console.WriteLine($"The Area of {Name} is -> [{Area}]");
+            Console.WriteLine($"The Perimeter of {Name} is -> [{Perimeter}]\n");
             Console.ResetColor();
         }
 

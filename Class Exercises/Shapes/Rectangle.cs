@@ -10,11 +10,12 @@ namespace Exercise_3
 
         public Rectangle()
         {
-            name = "Rectangle";
-            sides = 4;
-            area = "Length * Width";
-            perimeter = "(Length + Width) * 2";
+            Name = "Rectangle";
+            Sides = 4;
+            Area = "Length * Width";
+            Perimeter = "(Length + Width) * 2";
         }
+        
 
         public (int, int) GetValue()
         {
@@ -26,11 +27,11 @@ namespace Exercise_3
 
         }
 
-        public double Area(int length, int width)
+        public double CalArea(int length, int width)
         {
             return length * width;
         }
-        public double Perimeter(int length, int width)
+        public double CalPerimeter(int length, int width)
         {
             return (length + width) * 2;
         }

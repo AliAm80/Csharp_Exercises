@@ -9,10 +9,10 @@ namespace Exercise_3
     {
         public Triangle()
         {
-            name = "Triangle";
-            sides = 3;
-            area = "(Base * Height)/2";
-            perimeter = "Side1 + Side2 + Side3";
+            Name = "Triangle";
+            Sides = 3;
+            Area = "(Base * Height)/2";
+            Perimeter = "Side1 + Side2 + Side3";
         }
 
         public (int, int) GetValue()
@@ -34,11 +34,11 @@ namespace Exercise_3
             return (side1, side2, side3);
         }
 
-        public double Area(int Base, int height)
+        public double CalArea(int Base, int height)
         {
             return (Base * height) / 2;
         }
-        public double Perimeter(int side1, int side2, int side3)
+        public double CalPerimeter(int side1, int side2, int side3)
         {  
             return side1 + side2 + side3;
         }

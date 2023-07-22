@@ -9,10 +9,10 @@ namespace Exercise_3
     {
         public Circle()
         {
-            name = "Circle";
-            sides = 0;
-            area = "Radius * Radius * Pi";
-            perimeter = "Diameter * Pi";
+            Name = "Circle";
+            Sides = 0;
+            Area = "Radius * Radius * Pi";
+            Perimeter = "Diameter * Pi";
         }
 
         public int GetValue()
@@ -22,11 +22,11 @@ namespace Exercise_3
             return radius;
         }
 
-        public double Area(int radius)
+        public double CalArea(int radius)
         {
             return Math.Round(radius * radius * Math.PI);
         }
-        public double Perimeter(int radius)
+        public double CalPerimeter(int radius)
         {
             var diameter = radius + radius;
             return Math.Round(diameter * Math.PI);
