@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_3
 {
-    public class Square : Shapes
+    sealed class Square : Shapes
     {
         public Square()
         {

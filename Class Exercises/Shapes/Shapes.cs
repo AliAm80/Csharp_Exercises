@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_3
 {
-    public class Shapes
+    abstract class Shapes
     {
         public string Name { get; set; }
         public int Sides { get; set; }

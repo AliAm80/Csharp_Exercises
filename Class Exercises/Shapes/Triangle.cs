@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_3
 {
-    public class Triangle : Shapes
+    sealed class Triangle : Shapes
     {
         public Triangle()
         {

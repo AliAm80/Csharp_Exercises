@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_3
 {
-    public class Circle : Shapes
+     sealed class Circle : Shapes
     {
         public Circle()
         {
