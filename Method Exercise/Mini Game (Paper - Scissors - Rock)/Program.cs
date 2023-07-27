@@ -39,7 +39,7 @@ namespace Exercise_6
         static string Computer(Random rand)
         {
             string[] game = { "paper", "scissors", "rock" };
-            rand = new Random();
+            // rand = new Random();
             var num = rand.Next(0, 3);
             var computer = game[num];
             return computer;
