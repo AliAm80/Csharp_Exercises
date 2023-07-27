@@ -10,8 +10,8 @@ namespace Ex_Converter
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\t\t\t\tWelcome To Converter :)\n");
             Console.ResetColor();
-            try
-            {
+            // try
+            // {
                 while (true)
                 {
                     var menu = ShowInput.Menu();
@@ -19,16 +19,16 @@ namespace Ex_Converter
                     ShowInput.Choose(menu);
                     Console.ReadLine();
                     Console.Clear();
+                    
                 }
-            }
-            catch (FormatException ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(ex.Message);
-                Console.ReadLine();
-                Console.ResetColor();
-
-            }
+            // }
+            // catch (FormatException ex)
+            // {
+                // Console.ForegroundColor = ConsoleColor.Red;
+                // Console.WriteLine(ex.Message);
+                // Console.ReadLine();
+                // Console.ResetColor();
+            // }
 
         }
     }

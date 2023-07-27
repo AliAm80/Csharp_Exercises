@@ -7,7 +7,7 @@ namespace Ex_Converter
 {
     public static class ShowInput
     {
-        public static int Menu()
+        public static string Menu()
         {
             Console.WriteLine("1) Convert Miles To Kilometers");
             Console.WriteLine("2) Convert Kilometers To Miles");
@@ -15,31 +15,31 @@ namespace Ex_Converter
             Console.WriteLine("4) Convert Number To Day Of Week");
             Console.WriteLine("5) Exit");
             Console.Write("\nEnter a number to execute : ");
-            var select = Convert.ToInt32(Console.ReadLine());
+            var select = Console.ReadLine();
             return select;
         }
 
-        public static void Choose(int select)
+        public static void Choose(string select)
         {
             switch (select)
             {
-                case 1:
+                case "1":
                     var input = MilesShow();
                     Converter.MilesToKilometers(input);
                     break;
-                case 2:
+                case "2":
                     input = KilometersShow();
                     Converter.KilometersToMiles(input);
                     break;
-                case 3:
+                case "3":
                     input = AlphabetShow();
                     Converter.NumberToAlphabet((int)input);
                     break;
-                case 4:
+                case "4":
                     input = DayOfWeekShow();
                     Converter.NumberToDayOfWeek((int)input);
                     break;
-                case 5:
+                case "5":
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("Good Bye :)\n");
                     Console.ResetColor();
