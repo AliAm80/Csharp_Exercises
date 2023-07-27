@@ -9,12 +9,12 @@ namespace Ex_Converter
     {
         public static void MilesToKilometers(double mile)
         {
-            var result = mile * 1.6;
+            var result = mile * 1.60934;
             Console.WriteLine($"\n{mile} miles is equal to {result} kilometers\n");
         }
         public static void KilometersToMiles(double kilometer)
         {
-            var result = kilometer / 1.6;
+            var result = kilometer / 1.60934;
             Console.WriteLine($"\n{kilometer} kilometers is equal to {result} miles\n");
         }
         public static void NumberToAlphabet(int number)
