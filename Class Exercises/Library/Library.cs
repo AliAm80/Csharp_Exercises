@@ -9,9 +9,10 @@ namespace Exercise_8
     {
         public static void DiplayBooks(Book[] books)
         {
-            foreach (var book in books)
+              foreach (var book in books)
             {
-                book.Info();
+                book.DisplayBasicInfo();
+                book.GetAdditionalInfo();
                 Console.WriteLine("--------------"); 
             }
 

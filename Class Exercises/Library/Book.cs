@@ -10,7 +10,23 @@ namespace Exercise_8
         protected string Title { get; set; }
         protected string Author { get; set; }
         protected int Pages { get; set; }
+         protected string Type { get; set; }
 
-        public abstract void Info();
+        public Book(string title_b, string author_b, int pages_b, string type_b)
+        {
+            Title = title_b;
+            Author = author_b;
+            Pages = pages_b;
+            Type = type_b;
+        }
+
+        public abstract void GetAdditionalInfo();
+        public void DisplayBasicInfo()
+        {
+            Console.WriteLine($"Title : {Title}");
+            Console.WriteLine($"Author : {Author}");
+            Console.WriteLine($"Pages : {Pages}");
+            Console.WriteLine($"Type : {Type}");
+        }
     }
 }

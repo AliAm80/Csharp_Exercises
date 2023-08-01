@@ -7,25 +7,14 @@ namespace Exercise_8
 {
     public class FictionBook : Book
     {
-
-        string Genre { get; set; }
-        public FictionBook(string title, string author, int pages, string genre)
+         string Genre { get; set; }
+        public FictionBook(string title, string author, int pages, string genre, string type) : base(title, author, pages, type)
         {
-            Title = title;
-            Author = author;
-            Pages = pages;
             Genre = genre;
         }
-        public override void Info()
+        public override void GetAdditionalInfo()
         {
-            Console.WriteLine("Title : " + Title);
-            Console.WriteLine("Author : " + Author);
-            Console.WriteLine("Pages : " + Pages);
-            Console.WriteLine("Genre : " + Genre);
+            Console.WriteLine($"Genre : {Genre}");
         }
-
-
-
-
     }
 }
