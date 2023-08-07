@@ -8,21 +8,25 @@ namespace Exercise_9
     public class Calculator
     {
 
-        double Number1 { get; set; }
-        double Number2 { get; set; }
-        string Option { get; set; }
-        double Result { get; set; }
-        public Calculator()
+        public double FirstOperand { get; set; }
+        public double SecondOperand { get; set; }
+        private string _operator;
+        private double _result;
+        public string Operator
         {
-            Console.Write("Enter Number 1 : ");
-            Number1 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter Number 2 : ");
-            Number2 = Convert.ToInt32(Console.ReadLine());
-            Option = Menu();
-            SelectOption(Option);
+            set
+            {
+                if (value == "+" ||
+                    value == "-" ||
+                    value == "*" ||
+                    value == "/")
+                {
+                    _operator = value;
+                }
+            }
         }
 
-        static string Menu()
+        public void PrintOptions()
         {
             Console.WriteLine("Options : ");
             Console.WriteLine("\t + : Add ");
@@ -30,54 +34,33 @@ namespace Exercise_9
             Console.WriteLine("\t * : Multiply ");
             Console.WriteLine("\t / : Divide ");
             Console.Write("Enter an option :");
-            var option = Console.ReadLine();
-            return option;
         }
-        void SelectOption(string option)
+
+        public void Process()
         {
-            switch (option)
+            switch (_operator)
             {
                 case "+":
-                    Result = AddCal(Number1, Number2);
-                    Console.WriteLine($"{Number1} + {Number2} = {Result}");
+                    _result = FirstOperand + SecondOperand;
                     break;
                 case "-":
-                    Result = SubstractCal(Number1, Number2);
-                    Console.WriteLine($"{Number1} - {Number2} = {Result}");
+                    _result = FirstOperand - SecondOperand;
                     break;
                 case "*":
-                    Result = MultiplyCal(Number1, Number2);
-                    Console.WriteLine($"{Number1} * {Number2} = {Result}");
+                    _result = FirstOperand * SecondOperand;
                     break;
                 case "/":
-                    Result = DivideCal(Number1, Number2);
-                    Console.WriteLine($"{Number1} / {Number2} = {Result}");
+                    _result = FirstOperand / SecondOperand;
                     break;
                 default:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("ERROR : That was not a valid option !!!");
-                    Console.ResetColor();
-                    break;
-
+                    throw new Exception("That was not a valid option !!!");
             }
 
         }
 
-        static double AddCal(double num1, double num2)
+        public override string ToString()
         {
-            return num1 + num2;
-        }
-        static double SubstractCal(double num1, double num2)
-        {
-            return num1 - num2;
-        }
-        static double MultiplyCal(double num1, double num2)
-        {
-            return num1 * num2;
-        }
-        static double DivideCal(double num1, double num2)
-        {
-            return num1 / num2;
+            return $"Result -> {FirstOperand} {_operator} {SecondOperand} = {_result}";
         }
 
 

@@ -6,49 +6,50 @@ namespace Exercise_9
     {
         static void Main(string[] args)
         {
-            Console.Clear();
-            var again = true;
+            Calculator cal = new Calculator();
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\t\t\t\t------------------");
+                Console.WriteLine("\t\t\t\tCalculator Program");
+                Console.WriteLine("\t\t\t\t------------------");
+                GetNumbers(cal);
+                cal.PrintOptions();
+                cal.Operator = Console.ReadLine();
 
+
+                try
+                {
+                    cal.Process();
+                    Console.WriteLine(cal);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                Console.WriteLine("Would you like to continue ? (Y = yes, N = no)");
+            } while (Console.ReadLine().ToUpper() == "Y");
+            Console.WriteLine("Bye :)");
+
+
+
+        }
+
+        public static void GetNumbers(Calculator calculator)
+        {
             try
             {
-                while (again)
-                {
-                    Console.WriteLine("\t\t\t\t\t------------------");
-                    Console.WriteLine("\t\t\t\t\tCalculator Program");
-                    Console.WriteLine("\t\t\t\t\t------------------");
-                    Calculator cal = new Calculator();
-                    Console.WriteLine("Would you like to continue ? (Y = yes, N = no)");
-                    var answer = Console.ReadLine();
-                    answer = answer.ToUpper();
-                    Console.Clear();
-                    if (answer == "Y")
-                    {
-                        again = true;
-                    }
-                    else if (answer == "N")
-                    {
-                        again = false;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("ERROR : You entered invalid !!!");
-                        Console.ResetColor();
-                        again = false;
-                    }
-
-                }
-                Console.WriteLine("Bye :)\n");
+                Console.Write("Enter Number 1 : ");
+                calculator.FirstOperand = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Enter Number 2 : ");
+                calculator.SecondOperand = Convert.ToDouble(Console.ReadLine());
             }
             catch (FormatException ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
-                Console.ResetColor();
-                Console.WriteLine("Please Enter Number :)\n");
-                
+                Console.WriteLine("Please Enter Number !");
+                Environment.Exit(0);
             }
-
 
         }
     }
