@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_8
 {
+    // Abstraction : Define a base Book class with common properties and methods
     public abstract class Book
     {
         protected string Title { get; set; }
@@ -20,7 +21,10 @@ namespace Exercise_8
             Type = type_b;
         }
 
+        // Abstract method to get additional information about the book
         public abstract void GetAdditionalInfo();
+
+        // Common method to display basic information about the book
         public void DisplayBasicInfo()
         {
             Console.WriteLine($"Title : {Title}");

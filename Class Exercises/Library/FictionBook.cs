@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Exercise_8
 {
+    // Derived classes for specific book type 
     public class FictionBook : Book
     {
          string Genre { get; set; }
@@ -12,6 +13,8 @@ namespace Exercise_8
         {
             Genre = genre;
         }
+
+        // Implementation of the abstract method for FictionBook class
         public override void GetAdditionalInfo()
         {
             Console.WriteLine($"Genre : {Genre}");

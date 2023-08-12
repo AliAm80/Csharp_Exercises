@@ -7,13 +7,14 @@ namespace Exercise_8
 {
     public static class Library
     {
+        // Method to display information about all the books in the library
         public static void DiplayBooks(Book[] books)
         {
-              foreach (var book in books)
+            foreach (var book in books)
             {
                 book.DisplayBasicInfo();
                 book.GetAdditionalInfo();
-                Console.WriteLine("--------------"); 
+                Console.WriteLine("--------------");
             }
 
         }
