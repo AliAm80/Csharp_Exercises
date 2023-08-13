@@ -4,6 +4,7 @@ namespace Challange_3
 {
     partial class Program
     {
+
         static void Main(string[] args)
         {
             // (())
@@ -22,22 +23,23 @@ namespace Challange_3
                     {
                         for (int i = h; i < characters.Length; i++)
                         {
-
-                            for (int j = i + 1; j < characters.Length; j++)
+                            if (characters[i] == '(')
                             {
-                                if (characters[j] == ')')
+                                for (int j = i + 1; j < characters.Length; j++)
                                 {
-                                    if (!indexes.Contains(j))
+                                    if (characters[j] == ')')
                                     {
-                                        indexes.Add(i);
-                                        indexes.Add(j);
-                                        indexes.Sort();
-                                        break;
+                                        if (!indexes.Contains(j))
+                                        {
+                                            indexes.Add(i);
+                                            indexes.Add(j);
+                                            indexes.Sort();
+                                            break;
+                                        }
                                     }
                                 }
+                                break;
                             }
-
-
                         }
 
                     }
@@ -45,18 +47,22 @@ namespace Challange_3
                     {
                         for (int i = h; i < characters.Length; i++)
                         {
-                            for (int j = i + 1; j < characters.Length; j++)
+                            if (characters[i] == '{')
                             {
-                                if (characters[j] == '}')
+                                for (int j = i + 1; j < characters.Length; j++)
                                 {
-                                    if (!indexes.Contains(j))
+                                    if (characters[j] == '}')
                                     {
-                                        indexes.Add(i);
-                                        indexes.Add(j);
-                                        indexes.Sort();
-                                        break;
+                                        if (!indexes.Contains(j))
+                                        {
+                                            indexes.Add(i);
+                                            indexes.Add(j);
+                                            indexes.Sort();
+                                            break;
+                                        }
                                     }
                                 }
+                                break;
                             }
                         }
                     }
@@ -64,44 +70,72 @@ namespace Challange_3
                     {
                         for (int i = h; i < characters.Length; i++)
                         {
-
-                            for (int j = i + 1; j < characters.Length; j++)
+                            if (characters[i] == '[')
                             {
-                                if (characters[j] == ']')
+                                for (int j = i + 1; j < characters.Length; j++)
                                 {
-                                    if (!indexes.Contains(j))
+                                    if (characters[j] == ']')
                                     {
-                                        indexes.Add(i);
-                                        indexes.Add(j);
-                                        indexes.Sort();
-                                        break;
+                                        if (!indexes.Contains(j))
+                                        {
+                                            indexes.Add(i);
+                                            indexes.Add(j);
+                                            indexes.Sort();
+                                            break;
+                                        }
                                     }
                                 }
+                                break;
                             }
-
-
                         }
                     }
                     else if (characters[h] == '/')
                     {
                         for (int i = h; i < characters.Length; i++)
                         {
-
-                            for (int j = i + 1; j < characters.Length; j++)
+                            if (characters[i] == '/')
                             {
-                                if (characters[j] == '\\')
+                                for (int j = i + 1; j < characters.Length; j++)
                                 {
-                                    if (!indexes.Contains(j))
+                                    if (characters[j] == '\\')
                                     {
-                                        indexes.Add(i);
-                                        indexes.Add(j);
-                                        indexes.Sort();
-                                        break;
+                                        if (!indexes.Contains(j))
+                                        {
+                                            indexes.Add(i);
+                                            indexes.Add(j);
+                                            indexes.Sort();
+                                            break;
+                                        }
                                     }
                                 }
+                                break;
                             }
 
 
+
+                        }
+                    }
+                    else if (characters[h] == '<')
+                    {
+                        for (int i = h; i < characters.Length; i++)
+                        {
+                            if (characters[i] == '<')
+                            {
+                                for (int j = i + 1; j < characters.Length; j++)
+                                {
+                                    if (characters[j] == '>')
+                                    {
+                                        if (!indexes.Contains(j))
+                                        {
+                                            indexes.Add(i);
+                                            indexes.Add(j);
+                                            indexes.Sort();
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+                            }
                         }
                     }
 
