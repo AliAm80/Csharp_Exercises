@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Challange_3
+namespace Challenge_3
 {
     partial class Program
     {
