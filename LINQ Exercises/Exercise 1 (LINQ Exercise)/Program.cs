@@ -10,7 +10,7 @@ namespace Exercise_1
 
             var studentList = StudentDatabase.GetStudentsFromDb();
             // (1)
-            var query1 = studentList.Where(x => x.IsActive == true &&
+            var query1 = studentList.Where(x => x.IsActive &&
                                                 x.Score > 80 &&
                                                 x.City == "NYC");
 
@@ -25,13 +25,13 @@ namespace Exercise_1
                                         StudentName = x.StudentName
                                     });
             // (4)
-            var query4 = studentList.Where(x => x.IsActive == false)
+            var query4 = studentList.Where(x => !x.IsActive)
                                     .OrderByDescending(x => x.Score);
             // (5)                  
             var query5 = studentList.Average(x => x.Score);
             // (6)
             var query6 = studentList.Where(x => x.City == "CA" &&
-                                                 x.IsActive == true &&
+                                                 x.IsActive &&
                                                 (x.StudentName.ToUpper().Contains("R") ||
                                                  x.StudentName.ToUpper().Contains("D")))
                                     .Average(x => x.Score);
